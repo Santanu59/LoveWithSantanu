@@ -13,8 +13,8 @@
         </form>
     </div>
     <div style="margin-top: 10px;">
-        <h2 id="timer" style="text-align: center; font-size: 40px; color: blueviolet;"></h2>
-         <div class="d" style="background-color: yellow; width: 50%; height: 40px; padding: 10px; border:dotted; border-radius: 5px;  margin: auto;">
+        <h2 id="timer" style="text-align: center; font-size: 40px; color: rgb(27, 26, 28);  margin-top: 0px; "></h2>
+         <div class="d" style="background-color: yellow; width: 50%; height: auto; padding: 10px; border:dotted; border-radius: 5px;  margin: auto; text-align: center;">
         </div>
     </div>
     <script>
@@ -22,7 +22,7 @@
         let txt =  document.querySelector('.text');
         let d = document.querySelector('.d');
         //timer-----------------------//
-        let time = 5;
+        let time = 10;
         let timer = document.getElementById("timer");
         //---------//
         form.addEventListener("submit",(e)=>{
@@ -30,7 +30,7 @@
             if(txt.value === ''){
              alert("Enter your name first dear")
             }else{
-                 d.textContent = "💫 Wait for 5 sec dear 💫...Every step you take leads you closer to my heart... 💘";
+                 d.textContent = "💫 Wait for 10 sec dear 💫...Every step you take leads you closer to my heart... 💘";
               let countdown = setInterval(() => {
                 time--;
                 timer.textContent = time;
@@ -44,7 +44,23 @@
               setTimeout(function(){
                   alert("✨ You are on the way into my heart... ✨");
                   d.textContent = "🩷🩷 I Love You "+txt.value+" 🩷🩷";
-              },5000)   
+                  setTimeout(function(){
+                     d.textContent="💖 You are my happiness";
+                  },3000);
+
+                  setTimeout(function(){
+                     d.textContent="🌹 You are my heart";
+                  },6000);
+
+                  setTimeout(function(){
+                     d.textContent="✨ Forever yours";
+                  },9000);
+
+                   setTimeout(function(){
+                     d.textContent="❤️Thank you❤️";
+                  },12000);
+
+              },10000);
             }
         });
     </script>
