@@ -23,11 +23,12 @@
         let d = document.querySelector('.d');
         form.addEventListener("submit",(e)=>{
            e.preventDefault();
+            if(txt.value === ''){
+             alert("Enter your name first")
+            }else{
              alert("You are on the way into my heart...");
            d.textContent = "🩷🩷 I Love You "+txt.value+" 🩷🩷";
-           if(txt.value === ''){
-             alert("Enter your name first")
-           }
+            }
         });
     </script>
 </body>
