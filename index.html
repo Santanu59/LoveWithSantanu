@@ -7,62 +7,71 @@
 </head>
 <body style="margin: 0px; padding: 0px; width: 100vw; height: 100vh; background-color: bisque; ">
     <div style="padding: 30px;" >
-        <form  id="form" style="background-color: aqua;  padding: 15px; width: 50%; margin: auto; border-radius: 5px; ">
-            <input type="text" class="text" placeholder="Enter your name only for girls"  style="width:100%; height: 30px; border-radius: 6px;"  >
+        <form  id="form" style="background-color: aqua;  padding: 15px; width: 50%; margin: auto; border-radius: 5px; box-shadow: 5px 4px 6px 0px;">
+            <input type="text" class="text" placeholder="Enter your name only for you dear"  style="width:100%; height: 30px; border-radius: 6px; outline: none;"  >
             <input type="submit" value="Submit" style="width:100%; height: 30px; cursor: pointer; background-color: blue; color: white; border:none; margin-top: 6px; border-radius: 6px;">
         </form>
     </div>
     <div style="margin-top: 10px;">
         <h2 id="timer" style="text-align: center; font-size: 40px; color: rgb(27, 26, 28);  margin-top: 0px; "></h2>
-         <div class="d" style="background-color: yellow; width: 50%; height: auto; padding: 10px; border:dotted; border-radius: 5px;  margin: auto; text-align: center;">
+         <div class="d" style="background-color: yellow; width: 50%; height: auto; padding: 10px; border:dotted; border-radius: 5px;  margin: auto; text-align: center; box-shadow: 5px 4px 4px 0px;">
         </div>
     </div>
-    <script>
-        let f = document.getElementById('form');
-        let txt =  document.querySelector('.text');
-        let d = document.querySelector('.d');
-        //timer-----------------------//
-        let time = 10;
-        let timer = document.getElementById("timer");
-        //---------//
-        form.addEventListener("submit",(e)=>{
-           e.preventDefault();
-            if(txt.value === ''){
-             alert("Enter your name first dear")
-            }else{
-                 d.textContent = "💫 Wait for 10 sec dear 💫...Every step you take leads you closer to my heart... 💘";
-              let countdown = setInterval(() => {
+  <script>
+    let f = document.getElementById('form');
+    let txt = document.querySelector('.text');
+    let d = document.querySelector('.d');
+    let timer = document.getElementById("timer");
+
+    let countdown; // store interval
+
+    f.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        if (txt.value === '') {
+            alert("Enter your name first dear");
+        } else {
+            let time = 10; // reset timer each submit
+
+            clearInterval(countdown); // stop old timer
+            timer.textContent = time;
+
+            d.textContent = "💫 Wait for 10 sec dear 💫...Every step you take leads you closer to my heart... 💘";
+
+            countdown = setInterval(() => {
                 time--;
                 timer.textContent = time;
-                console.log("interval");
-                        if (time === 0) {
-                        clearInterval(countdown);
-                        timer.textContent = "Time's up!";
-                    }
-                },1000);
-                
-              setTimeout(function(){
-                  alert("✨ You are on the way into my heart... ✨");
-                  d.textContent = "🩷🩷 I Love You "+txt.value+" 🩷🩷";
-                  setTimeout(function(){
-                     d.textContent="💖 You are my happiness";
-                  },3000);
 
-                  setTimeout(function(){
-                     d.textContent="🌹 You are my heart";
-                  },6000);
+                if (time === 0) {
+                    clearInterval(countdown);
+                    timer.textContent = "🎉 Time's up! 🕛 🎉";
+                }
+            }, 1000);
 
-                  setTimeout(function(){
-                     d.textContent="✨ Forever yours";
-                  },9000);
+            setTimeout(() => {
+                alert("✨ You are on the way into my heart... ✨");
+                d.textContent = "🩷🩷 I Love You " + txt.value + " 🩷🩷";
 
-                   setTimeout(function(){
-                     d.textContent="❤️Thank you❤️";
-                  },12000);
+                setTimeout(() => {
+                    d.textContent = "💖 You are my happiness";
+                }, 3000);
 
-              },10000);
-            }
-        });
-    </script>
+                setTimeout(() => {
+                    d.textContent = "🌹 You are my heart";
+                }, 6000);
+
+                setTimeout(() => {
+                    d.textContent = "✨ Forever yours";
+                }, 9000);
+
+                setTimeout(() => {
+                    d.textContent = "❤️ Thank you ❤️";
+                }, 12000);
+
+            }, 10000);
+        }
+    });
+</script>
+
 </body>
 </html>
